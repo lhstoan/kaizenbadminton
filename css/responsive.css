@@ -1,0 +1,427 @@
+/*==========================================================================*/
+/*                     H O V E R    &    P C    O N L Y                     */
+/*==========================================================================*/
+@media screen and (min-width: 1921px) {
+  .to-top {
+    right: calc(50% - 960px + 20px);
+  }
+}
+/* END screen-min:1921px */
+@media screen and (min-width: 751px) {
+  #lightboxOverlay,
+  #lightbox {
+    min-width: var(--content-width) !important;
+    width: 100% !important;
+  }
+  .sp {
+    display: none !important;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .to-top a:hover {
+    opacity: 0.7;
+  }
+}
+/* END screen-min:751px */
+/* END screen-min:751px && screen-max:1919px */
+/* END screen-min:751px && screen-max:1650px */
+@media screen and (min-width: 751px) and (max-width: 1240px) {
+  .iList.fullWidth {
+    width: 100vw;
+  }
+  .iList.fullWidth.gap .iList--main li {
+    width: calc(50% - var(--gap));
+  }
+  .iList {
+    width: 100vw;
+  }
+  .iList.artists .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.artists .iList--main {
+    gap: 10px;
+    width: calc(100% + 10px);
+  }
+  .iList.artists .iList--main li {
+    width: calc(50% - 10px);
+  }
+  .iList.artists .iList--name h4 {
+    font-size: 20px;
+  }
+}
+/* END screen-min:751px && screen-max:1440px */
+/*==========================================================================*/
+/*                        M O B I L E    D E V I C E                        */
+/*==========================================================================*/
+@media screen and (min-width: 1px) and (max-width: 750px) {
+  #wrapper {
+    min-width: unset !important;
+  }
+  .pc {
+    display: none !important;
+  }
+  * {
+    column-gap: none !important;
+    row-gap: none !important;
+  }
+  .to-top {
+    bottom: 100px;
+  }
+  .to-top > a {
+    width: 50px;
+    height: 50px;
+  }
+  .to-top > a::before {
+    inset: 4px 0 0;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+  }
+  .sp320,
+  .sp375,
+  .sp425 {
+    display: block;
+  }
+  header {
+    height: 60px;
+  }
+  body.open-nav {
+    overflow: hidden;
+  }
+  body.open-nav .iHeader--menu {
+    left: 0;
+  }
+  .iHeader {
+    padding: 10px 10px;
+  }
+  .iHeader--hamburger {
+    display: block;
+  }
+  .iHeader--logo img {
+    height: 40px;
+  }
+  .iHeader--menu {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: #000001;
+    z-index: 100;
+    border-top: 1px solid #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .iHeader--menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  .iHeader--menu ul li a {
+    font-size: 34px;
+  }
+  main {
+    margin-top: 60px;
+  }
+  .iMainvisual {
+    height: auto;
+    min-height: calc(100vh - 60px);
+  }
+  .iMainvisual--main {
+    transform: translate(-50%, -50%);
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 10px;
+  }
+  .iMainvisual--img {
+    width: 62.5vw;
+  }
+  .iMainvisual--content {
+    font-size: 3.75vw;
+    width: 100%;
+    left: 0;
+  }
+  .iMainvisual--content h6 {
+    margin-bottom: 30px;
+  }
+  .iMainvisual--content a {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+  .iList {
+    padding: 40px 10px;
+  }
+  .iList--title {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .iList--main {
+    width: calc(100% + 10px);
+    flex-wrap: wrap;
+  }
+  .iList--main.async {
+    flex-wrap: wrap;
+    --gap: 10px;
+  }
+  .iList--main li {
+    width: calc(50% - var(--gap));
+  }
+  .iList--name h4 {
+    font-size: 14px;
+  }
+  .iList.fullWidth {
+    padding: 0 0;
+  }
+  .iList.fullWidth .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.fullWidth .iList--main {
+    gap: 0;
+  }
+  .iList.fullWidth .iList--main li {
+    width: 100%;
+  }
+  .iList.fullWidth.gap {
+    padding: 10px;
+    width: 100%;
+  }
+  .iList.fullWidth.gap .iList--main {
+    padding-left: 0;
+    gap: var(--gap);
+    width: 100%;
+    --gap: 10px;
+  }
+  .iList.fullWidth.gap .iList--main li {
+    width: 100%;
+  }
+  .iList.artists .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.artists .iList--main {
+    gap: 10px;
+    width: 100%;
+  }
+  .iList.artists .iList--main li {
+    width: 100%;
+  }
+  .iList.artists .iList--name h4 {
+    font-size: 20px;
+  }
+  .iList.releases .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.releases .iList--main {
+    width: 100%;
+  }
+  .iList.releases .iList--main li {
+    width: 50%;
+  }
+  .iList.releases .iList--name h4 {
+    font-size: 20px;
+  }
+  .iBack--wrap {
+    padding: 20px 10px;
+  }
+  .iBack a {
+    font-size: 14px;
+  }
+  .iBack a::before {
+    top: 0px;
+  }
+  .iDetail--img {
+    padding: 20px 10px;
+  }
+  .iDetail--link {
+    padding: 20px 10px;
+  }
+  .iDetail--link a {
+    font-size: 15px;
+  }
+  .iDetail--desc {
+    padding: 20px 10px;
+  }
+  .marquee span {
+    font-size: 20px;
+  }
+  .iFooter {
+    padding: 40px 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+  }
+  .iFooter .img {
+    height: 40px;
+    position: relative;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  .iFooter .img img {
+    height: 100%;
+  }
+  .iFooter--copyright {
+    text-align: right;
+  }
+  .iFooter--link {
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    order: 2;
+    margin-right: auto;
+  }
+  .iFooter--link li {
+    text-align: left;
+  }
+  .iContact {
+    padding: 30px 10px;
+  }
+  .iContact--wrap {
+    flex-direction: column;
+  }
+  .iContact--info {
+    width: 100%;
+    padding: 10px;
+  }
+  .iContact--info-title {
+    margin-bottom: 20px;
+  }
+  .iContact--info-title .title {
+    font-size: 30px;
+  }
+  .iContact--info-title .desc {
+    font-size: 14px;
+  }
+  .iContact--group {
+    gap: 10px;
+  }
+  .iContact--item {
+    width: 100%;
+    gap: 10px;
+    font-size: 14px;
+    --s: 46px;
+  }
+  .iContact--item-icon img {
+    width: 24px;
+  }
+  .iContact--item-content {
+    font-size: 14px;
+  }
+  .iContact--form {
+    width: 100%;
+    padding: 10px;
+    --fz: 14px;
+  }
+  .iContact--form-group {
+    flex-direction: column;
+  }
+  .iContact--form-group .iContact--form-item {
+    width: 100%;
+  }
+  .iContact--form-item label {
+    font-size: 14px;
+  }
+  .iPlaylist--main {
+    flex-wrap: wrap;
+  }
+  .iPlaylist--main li {
+    width: 100%;
+  }
+  .uPlaylist {
+    padding: 40px 15px;
+  }
+  .uPlaylist--main {
+    --gap: 15px;
+    width: 100%;
+  }
+  .uPlaylist--main li {
+    width: 100%;
+  }
+}
+/* END min-width:1px && screen-max:750px */
+@media screen and (min-width: 375px) and (max-width: 750px) {
+  .sp320 {
+    display: none;
+  }
+}
+/* END min-width:375px && screen-max:750px */
+@media screen and (min-width: 425px) and (max-width: 750px) {
+  .sp375 {
+    display: none;
+  }
+}
+/* END min-width:425px && screen-max:750px */
+@media screen and (min-width: 475px) and (max-width: 750px) {
+  .sp425 {
+    display: none;
+  }
+}
+/* END min-width:475px && screen-max:750px */
+@media screen and (min-width: 525px) and (max-width: 750px) {
+  .iList.fullWidth {
+    padding: 0 0;
+  }
+  .iList.fullWidth .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.fullWidth .iList--main {
+    gap: 0;
+  }
+  .iList.fullWidth .iList--main li {
+    width: 100%;
+  }
+  .iList.fullWidth.gap {
+    padding: 10px;
+    width: 100%;
+  }
+  .iList.fullWidth.gap .iList--main {
+    gap: var(--gap);
+    width: calc(100% + 10px);
+    --gap: 10px;
+  }
+  .iList.fullWidth.gap .iList--main li {
+    width: calc(50% - var(--gap));
+  }
+  .iList.artists .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.artists .iList--main {
+    gap: 10px;
+    width: 100%;
+  }
+  .iList.artists .iList--main li {
+    width: calc(50% - 10px);
+  }
+  .iList.artists .iList--name h4 {
+    font-size: 20px;
+  }
+  .iList.releases .iList--wrap {
+    max-width: 100%;
+  }
+  .iList.releases .iList--main {
+    width: 100%;
+  }
+  .iList.releases .iList--main li {
+    width: 50%;
+  }
+  .iList.releases .iList--name h4 {
+    font-size: 20px;
+  }
+}
+/* END min-width:525px && screen-max:750px */
+/*==========================================================================*/
+/*                 F O R   S P E C I F I E D   B R O W S E R                */
+/*==========================================================================*/
+/* EDGE  */
+/* FIREFOX */
+@-moz-document url-prefix() {}
+/* Safari 10.1+ (which is the latest version of Safari at this time) */
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+}
+/*==========================================================================*/
+/*                             E N D   A L L                                */
+/*==========================================================================*/
+
+/*# sourceMappingURL=responsive.css.map */

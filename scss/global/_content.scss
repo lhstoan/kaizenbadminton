@@ -1,0 +1,697 @@
+/*==========================================================================*/
+/*                                M A I N                                   */
+/*==========================================================================*/
+.sp320,
+.sp375,
+.sp425 {
+	display: none;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+#artists {
+	main {
+		background-color: hsl(55.38deg 37.14% 93.14%) !important;
+	}
+}
+
+#contact {
+	main {
+		min-height: calc(100vh - 100px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+main {
+	margin-top: 103px;
+	position: relative;
+	width: 100%;
+	background-color: #000;
+}
+
+.iMainvisual {
+	position: relative;
+	height: calc(100vh - 100px);
+	background-color: #e8da5d;
+	background-image: url(../images/bg-home.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	&--main {
+		position: absolute;
+		max-width: calc(1434px / 1920px * 100vw);
+		width: 100%;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		align-items: center;
+		gap: 50px;
+	}
+	&--img {
+		position: relative;
+		width: calc(510px / 1920px * 100vw);
+	}
+	&--btn {
+		a {
+			position: relative;
+			display: inline-block;
+			padding: 14px 24px;
+			font-weight: bold;
+			font-size: 20px;
+			text-decoration: none;
+			text-transform: uppercase;
+			color: #fff;
+			border: 2px solid #fff;
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: transparent;
+				background-image: url(../images/bg-home.jpg);
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background-color: #fff;
+					z-index: -1;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+	&--content {
+		position: relative;
+		text-align: center;
+		color: #fff;
+		font-size: calc(36px / 1920px * 100vw);
+		width: calc(100% - 510px - 50px);
+		left: calc(64px / 1920px * 100vw);
+
+		h2 {
+			position: relative;
+			font-size: 2em;
+			text-transform: uppercase;
+			font-weight: bold;
+			margin-bottom: 6px;
+			line-height: 1.4em;
+			font-family: "FatFrank";
+			letter-spacing: 0.1em;
+		}
+		h6 {
+			position: relative;
+			font-size: 1em;
+			line-height: 1.4em;
+			font-family: "FatFrank";
+			letter-spacing: 0.1em;
+			margin-bottom: 45px;
+		}
+	}
+}
+
+.iList {
+	position: relative;
+	padding: 70px 15px;
+	&.bg2 {
+		background-color: #111111;
+	}
+
+	&--wrap {
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1700px;
+		width: 100%;
+		&.min {
+			max-width: 1440px;
+		}
+	}
+	&--title {
+		position: relative;
+		color: #fff;
+		font-size: 20px;
+		font-family: "FatFrank";
+		line-height: 1.4em;
+		margin-bottom: 1em;
+	}
+	&--main {
+		position: relative;
+		display: flex;
+		--gap: 10px;
+		gap: var(--gap);
+
+		&.async {
+			flex-wrap: wrap;
+
+			--gap: 40px;
+		}
+		li {
+			position: relative;
+			width: calc(100% / 4 - var(--gap));
+			overflow: hidden;
+			transition: all 0.3s ease-in-out;
+			line-height: 1em;
+			display: flex;
+			flex-direction: column;
+			* {
+				transition: all 0.3s ease-in-out;
+			}
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+			&::before {
+				position: absolute;
+				content: "";
+				width: 100%;
+				height: 100%;
+				border: 4px solid #e8da5d;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: all 0.3s ease-in-out;
+				z-index: 1;
+			}
+			&:hover {
+				transition: all 0.3s ease-in-out;
+				// &::before {
+				// 	opacity: 0.8;
+				// }
+				img {
+					transform: scale(1.1);
+
+					transition: all 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+	&--btn {
+		position: relative;
+		margin-top: 20px;
+	}
+	&--img {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&--name {
+		position: relative;
+		width: 100%;
+		background-color: #fff;
+		flex: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		h4 {
+			position: relative;
+			color: #333;
+			text-align: center;
+			font-size: 18px;
+			padding: 10px;
+			line-height: 1.4em;
+			font-family: "FatFrank";
+			letter-spacing: 0.1em;
+			margin-bottom: 0;
+		}
+	}
+
+	&.fullWidth {
+		padding: 0 0;
+
+		.iList {
+			&--wrap {
+				max-width: 100%;
+			}
+			&--main {
+				gap: 0;
+				li {
+					width: calc(100% / 4);
+				}
+			}
+		}
+		&.gap {
+			padding: 10px 0 9px;
+			.iList {
+				&--main {
+					padding-left: var(--gap);
+					gap: var(--gap);
+					--gap: 10px;
+					li {
+						width: calc(100% / 4 - var(--gap));
+					}
+				}
+			}
+		}
+	}
+	&.releases {
+		.iList {
+			&--main {
+				li {
+					overflow: unset;
+					&:hover {
+						z-index: 10;
+						.iList--img {
+							overflow: unset;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.iPlaylist {
+	&--main {
+		position: relative;
+		display: flex;
+		--gap: 10px;
+		gap: var(--gap);
+
+		&.async {
+			flex-wrap: wrap;
+
+			--gap: 40px;
+		}
+		li {
+			position: relative;
+			width: calc(100% / 4 - var(--gap));
+			overflow: hidden;
+			transition: all 0.3s ease-in-out;
+			line-height: 1em;
+			display: flex;
+			flex-direction: column;
+			* {
+				transition: all 0.3s ease-in-out;
+			}
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+			&:hover {
+				transition: all 0.3s ease-in-out;
+				// &::before {
+				// 	opacity: 0.8;
+				// }
+				img {
+					transform: scale(1.1);
+
+					transition: all 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+	&--btn {
+		position: relative;
+		margin-top: 20px;
+	}
+	&--img {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&--name {
+		position: relative;
+		width: 100%;
+		background-color: #fff;
+		flex: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		h4 {
+			position: relative;
+			color: #333;
+			text-align: center;
+			font-size: 18px;
+			padding: 10px;
+			line-height: 1.4em;
+			font-family: "FatFrank";
+			letter-spacing: 0.1em;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.uPlaylist {
+	position: relative;
+	padding: 70px 15px;
+
+	&--wrap {
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1600px;
+		width: 100%;
+	}
+	&--main {
+		position: relative;
+		display: flex;
+		--gap: 40px;
+		gap: var(--gap);
+		flex-wrap: wrap;
+		width: calc(100% + var(--gap));
+		li {
+			position: relative;
+			width: calc(100% / 3 - var(--gap));
+			overflow: hidden;
+			transition: all 0.3s ease-in-out;
+			line-height: 1em;
+			display: flex;
+			flex-direction: column;
+			* {
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+}
+
+.linkfull {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 10;
+	cursor: pointer;
+	left: 0;
+}
+
+.ibtn {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: #333;
+	background-color: #fff;
+	padding: 12px 14px 10px;
+	font-size: 16px;
+	font-family: "FatFrank";
+	line-height: 1em;
+}
+
+.iBack {
+	position: relative;
+	background-color: #7a7231;
+	margin-bottom: 0 !important;
+	&--wrap {
+		position: relative;
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		padding: 30px 0;
+	}
+	a {
+		position: relative;
+		color: #fff;
+		font-family: "FatFrank";
+		text-decoration: none;
+		font-size: 18px;
+		line-height: 1em;
+		letter-spacing: 0.1em;
+		padding-left: 20px;
+		&::before {
+			position: absolute;
+			content: "";
+			border-top: 8px solid transparent;
+			border-right: 10px solid #fff;
+			border-bottom: 8px solid transparent;
+			left: 0;
+			top: 2px;
+		}
+	}
+}
+
+.iDetail {
+	position: relative;
+	&--img {
+		position: relative;
+		padding: 40px 0;
+		text-align: center;
+		img {
+			max-height: 450px;
+		}
+	}
+	&--link {
+		position: relative;
+		padding: 30px 0;
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		background-color: #7a7231;
+		li {
+			position: relative;
+			&::before {
+				position: absolute;
+				content: "";
+				width: 1px;
+				height: 100%;
+				top: 50%;
+				transform: translateY(-50%);
+				right: -10px;
+				background-color: #fff;
+				user-select: none;
+				pointer-events: none;
+			}
+			&:last-child {
+				&::before {
+					content: none;
+				}
+			}
+		}
+		a {
+			font-size: 20px;
+			font-family: "FatFrank";
+			position: relative;
+			display: block;
+			line-height: 1em;
+			text-decoration: none;
+			color: #fff;
+			letter-spacing: 0.05em;
+			&:hover {
+				color: #e8da5d;
+			}
+		}
+	}
+	&--desc {
+		position: relative;
+		padding: 50px 0;
+		background-color: #111111;
+		p {
+			color: #fff;
+			font-size: 16px;
+			margin-bottom: 1.1em;
+		}
+	}
+	&--wrap {
+		position: relative;
+		max-width: 1440px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.marquee {
+	overflow: hidden;
+	display: flex;
+	background-color: #e8da5d;
+	color: #111111;
+	gap: 60px;
+	padding: 20px 0px;
+	span {
+		position: relative;
+		display: block;
+		font-size: 40px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+}
+
+.iContact {
+	position: relative;
+	padding: 30px 10px;
+	&--wrap {
+		position: relative;
+		display: flex;
+		gap: 20px;
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	&--info {
+		position: relative;
+		width: calc(100% / 2 - 20px);
+		padding: 20px;
+		border: 1px solid #fff;
+		&-title {
+			position: relative;
+			margin-bottom: 30px;
+			.title {
+				font-size: 40px;
+				line-height: 1em;
+				font-family: "FatFrank";
+				position: relative;
+				display: block;
+			}
+			.desc {
+				position: relative;
+				line-height: 1.6em;
+				font-family: var(--font-family);
+				font-size: 16px;
+				p {
+					position: relative;
+					line-height: inherit;
+					font-size: 1em;
+				}
+			}
+		}
+	}
+	&--group {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+	&--item {
+		position: relative;
+		width: 100%;
+		display: flex;
+		gap: 10px;
+		font-size: 16px;
+		--s: 60px;
+
+		&-icon {
+			position: relative;
+			width: var(--s);
+			height: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid #fff;
+			border-radius: 6px;
+			box-shadow: 0 3px 6px rgba(255, 255, 255, 0.12);
+			img {
+				width: 34px;
+			}
+		}
+		&-content {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			font-size: 16px;
+			width: calc(100% - var(--s) - 10px);
+			.title {
+				position: relative;
+				font-size: 1.5em;
+				font-family: "FatFrank";
+				line-height: 1.3em;
+			}
+			.desc {
+				position: relative;
+				font-family: var(--font-family);
+				font-size: 1em;
+			}
+		}
+	}
+	&--form {
+		position: relative;
+		width: calc(100% / 2 - 20px);
+		padding: 0 20px;
+		--fz: 20px;
+		&-body {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		&-group {
+			position: relative;
+			display: flex;
+			gap: 10px;
+			.iContact--form-item {
+				position: relative;
+				width: calc(100% / 2 - 10px);
+			}
+		}
+		&-title {
+			position: relative;
+			color: #111111;
+			font-size: var(--fz);
+		}
+		&-item {
+			position: relative;
+			label {
+				position: relative;
+				color: #fff;
+				font-size: 16px;
+				font-family: var(--font-family);
+				font-weight: bold;
+				margin-bottom: 5px;
+				span {
+					font-weight: 500;
+					font-size: 0.8em;
+					color: #ccc;
+				}
+			}
+			textarea {
+				resize: none;
+				font-size: 15px;
+				background-color: transparent;
+				border: none;
+				border-bottom: 1px solid #fff;
+				color: #fff;
+			}
+			input {
+				background-color: transparent;
+				border: none;
+				border-bottom: 1px solid #fff;
+				color: #fff;
+			}
+		}
+		&-btn {
+			position: relative;
+			margin-top: 20px;
+			p {
+				display: flex;
+				align-items: center;
+			}
+			.ibtn {
+				background-color: #fff;
+				color: #000;
+				padding: 20px 30px;
+				cursor: pointer;
+			}
+		}
+		.wpcf7-response-output {
+			margin: 2em 0.5em 1em;
+			color: #46b450;
+			font-size: 18px;
+			font-family: var(--font-family);
+			padding: 0 0;
+			border: none;
+		}
+	}
+}
