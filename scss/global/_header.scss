@@ -17,7 +17,8 @@ header {
 }
 .iHeader {
 	position: relative;
-	background-color: #000001;
+	background-color: rgba(255, 249, 249, 0.1);
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.04);
 	display: flex;
 	justify-content: space-between;
 	height: 100%;
@@ -28,7 +29,7 @@ header {
 		align-items: center;
 		justify-content: center;
 		img {
-			height: 50px;
+			height: 180px;
 		}
 	}
 	&--menu {
@@ -49,11 +50,11 @@ header {
 					text-transform: uppercase;
 					display: inline-block;
 					text-decoration: none;
-					font-family: "FatFrank";
+					font-family: var(--font-kaizen);
 					font-weight: 400;
 					font-style: normal;
 					font-size: 20px;
-					color: #fff;
+					color: #000;
 					&:hover {
 						color: #e8da5d;
 					}
