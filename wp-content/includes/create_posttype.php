@@ -101,6 +101,57 @@ function prefix_register_all() {
     )
   );
 
+    /* ========================================================================= */
+  /* ========================================================================= */
+
+  $name = "Matches";
+    $singular_name = "Matches";
+    $menu_name = "Matches";
+    $name_admin_bar = "Matches";
+    $all_items = "All Items";
+    $add_new = "Add New";
+    $add_new_item = "Add New Item";
+    $edit_item = "Edit Item";
+    $new_item = "New Item";
+    $view_item = "View Item";
+    $search_items = "Search Items";
+    $not_found = "No items found.";
+    $not_found_in_trash = "No items found in Trash.";
+    $parent_item_colon = "Parent Items:";
+  
+
+  register_post_type(
+    'matches',
+    array(
+      'labels' => array(
+        'name' => __( $name, 'text_domain' ),
+        'singular_name' => __( $singular_name, 'text_domain' ),
+        'menu_name' => __( $menu_name, 'text_domain' ),
+        'name_admin_bar' => __( $name_admin_bar, 'text_domain' ),
+        'all_items' => __( $all_items, 'text_domain' ),
+        'add_new' => _x( $add_new, 'matches', 'text_domain' ),
+        'add_new_item' => __( $add_new_item, 'text_domain' ),
+        'edit_item' => __( $edit_item, 'text_domain' ),
+        'new_item' => __( $new_item, 'text_domain' ),
+        'view_item' => __( $view_item, 'text_domain' ),
+        'search_items' => __( $search_items, 'text_domain' ),
+        'not_found' => __( $not_found, 'text_domain' ),
+        'not_found_in_trash' => __( $not_found_in_trash, 'text_domain' ),
+        'parent_item_colon' => __( $parent_item_colon, 'text_domain' )
+      ),
+      'public' => true,
+      'menu_position' => 20,
+      'supports' => array(
+        'title',
+        'editor',
+        'thumbnail',
+        'revisions'
+      ),
+      'has_archive' => true,
+      'menu_icon' => 'dashicons-businessman'
+    )
+  );
+
   /* ========================================================================= */
   /* ========================================================================= */
 
