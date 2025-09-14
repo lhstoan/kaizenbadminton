@@ -970,6 +970,24 @@ main {
   letter-spacing: 0.1em;
   margin-bottom: 45px;
 }
+.iMainvisual--list {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.iMainvisual--list li {
+  width: 284px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+}
+.iMainvisual--list li img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+}
 
 .linkfull {
   position: absolute;
@@ -1054,20 +1072,28 @@ main {
 }
 .iMember--list {
   position: relative;
-  display: flex;
-  gap: 40px 15px;
   flex-wrap: wrap;
   width: calc(100% + 15px);
+  margin: 0 -15px;
+}
+.iMember--list .slick-slide {
+  margin: 0 15px;
+}
+.iMember--list .slick-list {
+  overflow: unset;
 }
 .iMember--list li {
   position: relative;
-  width: calc(33.3333333333% - 15px);
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   border: 2px solid #000;
+  opacity: 0.5;
+}
+.iMember--list li.slick-active {
+  opacity: 1;
 }
 .iMember--list li .img {
   position: relative;
@@ -1122,6 +1148,30 @@ main {
 .iMember--list li .title .role {
   font-family: var(--font-kaizen);
   font-size: 1em;
+}
+.iMember--btn {
+  position: absolute;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: calc(100% + 200px);
+  z-index: 30;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.iMember--btn span {
+  position: relative;
+  width: 80px;
+  padding: 10px 10px;
+  border: 2px solid #000;
+  background-color: #000;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .iHomeGround--wrap {

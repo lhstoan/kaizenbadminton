@@ -232,91 +232,18 @@ jQuery(document).ready(function () {
 	});
 	// =========== END - ACCORDION ============
 
+	jQuery(function () {
+		jQuery('.iMember--list').slick({
+			dots: false,
+			infinite: true,
+			speed: 700,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			prevArrow: jQuery('.iMember--btn .custom-prev'),
+			nextArrow: jQuery('.iMember--btn .custom-next')
+		});
+	});
+
 });
-
-function Marquee(selector, speed, gap = 50) {
-	const parent = document.querySelector(selector);
-	const originalContent = parent.innerHTML;
-	parent.innerHTML = '';
-
-	// Tạo một cụm chứa nội dung với khoảng cách
-	function createGroup() {
-		const group = document.createElement('div');
-		group.style.display = 'inline-block';
-		group.style.marginRight = `${gap}px`;
-		group.innerHTML = originalContent;
-		return group;
-	}
-
-	const sampleGroup = createGroup();
-	parent.appendChild(sampleGroup);
-
-	const contentWidth = sampleGroup.offsetWidth + gap;
-	const screenWidth = window.innerWidth;
-
-	const repeatCount = Math.ceil(screenWidth / contentWidth) + 2;
-	for (let i = 0; i < repeatCount; i++) {
-		parent.appendChild(createGroup());
-	}
-
-	let position = 0;
-	let animationFrame;
-
-	function animate() {
-		position += speed;
-		if (position >= contentWidth) {
-			position = 0;
-		}
-		parent.scrollLeft = position;
-		animationFrame = requestAnimationFrame(animate);
-	}
-
-	function startMarquee() {
-		cancelAnimationFrame(animationFrame);
-		animationFrame = requestAnimationFrame(animate);
-	}
-
-	function stopMarquee() {
-		cancelAnimationFrame(animationFrame);
-	}
-
-	parent.addEventListener('mouseenter', stopMarquee);
-	parent.addEventListener('mouseleave', startMarquee);
-
-	parent.style.whiteSpace = 'nowrap';
-	parent.style.overflow = 'hidden';
-	parent.style.display = 'block';
-
-	startMarquee();
-}
-
-window.addEventListener('load', () => Marquee('.marquee', 0.5, 60)); // 60px gap
-
-
-function makeBoxSquare(selector) {
-	const boxes = document.querySelectorAll(selector)
-
-	const update = () => {
-		boxes.forEach(box => {
-			const width = box.offsetWidth
-			box.style.height = `${width}px`
-		})
-	}
-
-	// Gọi ban đầu + khi resize
-	update()
-	window.addEventListener('resize', update)
-
-	// Gọi lại khi orientation change (quay dọc/ngang)
-	window.addEventListener('orientationchange', () => {
-		setTimeout(update, 300) // delay để tránh bug layout
-	})
-}
-
-function fallbackSquare(selector) {
-	if (CSS.supports('aspect-ratio: 1 / 1')) return
-
-	makeBoxSquare(selector)
-}
-
-fallbackSquare('.iList--img')

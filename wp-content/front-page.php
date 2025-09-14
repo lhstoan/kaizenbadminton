@@ -23,175 +23,169 @@ get_header();
 	<section class="iMainvisual">
 		<div class="iMainvisual--main">
 			<div class="iMainvisual--img">
-				<img src="<?php echo $main_image['url'];?>" alt="<?php echo $name_playlist;?>">
+				<img src="<?php echo get_theme_file_uri('') ?>/images/logo.png" alt="You ARE MY SUNSHINE">
 			</div>
 			<div class="iMainvisual--content">
-				<h2><?php echo $name_playlist;?></h2>
-				<h6><?php echo $artists_playlist;?></h6>
-				<div class="iMainvisual--btn">
-					<a href="<?php echo $link_playlist;?>">OUT NOW</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="iList">
-		<div class="iList--wrap">
-			<h3 class="iList--title">NEW RELEASES</h3>
-			<ul class="iList--main">
-<?php
-$new_releases = get_field('new_releases', $home_id);
+				<ul class="iMainvisual--list">
+					<?php
+global $post;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
-if (!empty($new_releases)) {
-	$filteredReleases = [];
-	foreach ($new_releases as $key => $value) {
-		if (is_numeric($value)) {
-			$filteredReleases[$key] = $value;
-		}
-	}
+$args = array(
+	'post_type' => 'member',
+	'orderby' => 'date',
+	'order' => 'desc',
+	'posts_per_page' => 6,
+	'paged' => $paged,
+);
 
-	foreach ($filteredReleases as $post) {
-		setup_postdata($post);
+$the_query = new WP_Query($args);
 
+if ($the_query->have_posts()):
+	while ($the_query->have_posts()): $the_query->the_post();
 		$acf_link = get_field('url');
+		$full_name = get_field('full_name');
+		$nationality = get_field('nationality');
+		$event = get_field('event');
 		$thumbnail_id = get_post_thumbnail_id();
 		$yt_thumb = get_youtube_thumbnail_best($acf_link);
 		$thumbnail_url = '';
 
 		if ($thumbnail_id) {
 			$thumbnail_url = wp_get_attachment_url($thumbnail_id);
-		} elseif ($acf_image = get_field('image')) {
+		} elseif ($acf_image = get_field('profile_photo')) {
 			$thumbnail_url = $acf_image;
 		} elseif ($yt_thumb) {
 			$thumbnail_url = $yt_thumb;
 		} else {
-			$thumbnail_url = get_theme_file_uri('images/HINH1.jpg');
+			$thumbnail_url = get_theme_file_uri('images/default.jpg');
 		}
-		?>
-		<li>
-			<a href="<?php echo esc_url($acf_link); ?>" class="linkfull" target="_blank"></a>
-			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>">
-		</li>
-		<?php
-	}
+		?> <li><img src="<?php echo $thumbnail_url; ?>" alt=""></li>
+
+					<?php
+	endwhile;
 	wp_reset_postdata();
-} else {
-	// Nếu không có bài nào trong new_releases thì fallback về query mặc định
-	global $post;
-	$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-	$args = array(
-		'post_type' => 'releases',
-		'orderby' => 'date',
-		'order' => 'desc',
-		'posts_per_page' => 4,
-		'paged' => $paged,
-	);
-
-	$the_query = new WP_Query($args);
-
-	if ($the_query->have_posts()):
-		while ($the_query->have_posts()): $the_query->the_post();
-			$acf_link = get_field('url');
-			$thumbnail_id = get_post_thumbnail_id();
-			$yt_thumb = get_youtube_thumbnail_best($acf_link);
-			$thumbnail_url = '';
-
-			if ($thumbnail_id) {
-				$thumbnail_url = wp_get_attachment_url($thumbnail_id);
-			} elseif ($acf_image = get_field('image')) {
-				$thumbnail_url = $acf_image;
-			} elseif ($yt_thumb) {
-				$thumbnail_url = $yt_thumb;
-			} else {
-				$thumbnail_url = get_theme_file_uri('images/HINH1.jpg');
-			}
-			?>
-			<li>
-				<a href="<?php echo esc_url($acf_link); ?>" class="linkfull" target="_blank"></a>
-				<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>">
-			</li>
-			<?php
-		endwhile;
-		wp_reset_postdata();
-	endif;
-}
+endif;
 ?>
-</ul>
-			<div class="iList--btn">
-				<a href="<?php echo home_url(); ?>/releases/" class="ibtn">VIEW ALL</a>
+				</ul>
 			</div>
 		</div>
 	</section>
-	<section class="iList">
-		<div class="iList--wrap">
-			<h3 class="iList--title">PLAYLISTS </h3>
-		
+	<section class="iMember --padding">
+		<div class="iMember--wrap --wrap">
+			<h3 class="ih3">
+				<span class="en">Players</span>
+				<span class="jp">プレイヤー</span>
+			</h3>
+			<ul class="iMember--list">
 
-			<ul class="iPlaylist--main">
-<?php
-$playlists = get_field('playlists', $home_id);
 
-if (!empty($playlists)) {
-	$filteredPlaylists = [];
-	foreach ($playlists as $key => $value) {
-		if (is_numeric($value)) {
-			$filteredPlaylists[$key] = $value;
-		}
-	}
+				<?php
+global $post;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
-	foreach ($filteredPlaylists as $post) {
-		setup_postdata($post);
+$args = array(
+	'post_type' => 'member',
+	'orderby' => 'date',
+	'order' => 'desc',
+);
 
+$the_query = new WP_Query($args);
+
+if ($the_query->have_posts()):
+	while ($the_query->have_posts()): $the_query->the_post();
 		$acf_link = get_field('url');
-		$embed_url = str_replace('open.spotify.com/', 'open.spotify.com/embed/', $acf_link);
+		$full_name = get_field('full_name');
+		$nationality = get_field('nationality');
+		$event = get_field('event');
+		$thumbnail_id = get_post_thumbnail_id();
+		$yt_thumb = get_youtube_thumbnail_best($acf_link);
+		$thumbnail_url = '';
+
+		if ($thumbnail_id) {
+			$thumbnail_url = wp_get_attachment_url($thumbnail_id);
+		} elseif ($acf_image = get_field('profile_photo')) {
+			$thumbnail_url = $acf_image;
+		} elseif ($yt_thumb) {
+			$thumbnail_url = $yt_thumb;
+		} else {
+			$thumbnail_url = get_theme_file_uri('images/default.jpg');
+		}
 		?>
-		<li>
-			<iframe  	src="<?php echo esc_url($embed_url); ?>" width="100%" height="390" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			
-		</li>
-		<?php
-	}
+				<li>
+					<script>
+					const event = <?php echo json_encode($event); ?>;
+					console.log(event);
+					</script>
+					<div class="img">
+						<img src="<?php echo $thumbnail_url; ?>" alt="">
+					</div>
+
+					<div class="info">
+						<div class="city"><img
+								src="<?php echo get_theme_file_uri('') ?>/images/<?php echo $nationality; ?>.png"
+								alt=""></div>
+						<div class="title">
+							<span class="name"><?php echo $full_name; ?></span>
+							<span class="role"><?php echo implode('/', $event); ?></span>
+						</div>
+					</div>
+				</li>
+				<?php
+	endwhile;
 	wp_reset_postdata();
-} else {
-	// Nếu không có bài nào trong new_releases thì fallback về query mặc định
-	global $post;
-	$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-	$args = array(
-		'post_type' => 'playlists',
-		'orderby' => 'date',
-		'order' => 'desc',
-		'posts_per_page' => 4,
-		'paged' => $paged,
-	);
-
-	$the_query = new WP_Query($args);
-
-	if ($the_query->have_posts()):
-		while ($the_query->have_posts()): $the_query->the_post();
-			$acf_link = get_field('url');
-			$embed_url = str_replace('open.spotify.com/', 'open.spotify.com/embed/', $acf_link);
-		?>
-		<li>
-			<iframe  	src="<?php echo esc_url($embed_url); ?>" width="100%" height="390" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			
-		</li>
-			<?php
-		endwhile;
-		wp_reset_postdata();
-	endif;
-}
+endif;
 ?>
-</ul>
-<script>
-    const playlists = <?php echo json_encode($playlists); ?>;
-    console.log(playlists);
-</script>
-			<div class="iList--btn">
-				<a href="<?php echo home_url(); ?>/playlists/" class="ibtn">VIEW ALL</a>
+			</ul>
+		</div>
+
+	</section>
+	<!-- <section class="iPartner --padding">
+		<div class="iPartner--wrap --wrap">
+			<h3 class="ih3">
+				<span class="en">Partners</span>
+				<span class="jp">協力企業</span>
+			</h3>
+			<ul class="iPartner--list">
+				<li>
+					<div class="img">
+						<img src="images/logo.png" alt="">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section> -->
+	<div class="iHomeGround --padding">
+		<h3 class="ih3">
+			<span class="en">Home Ground</span>
+			<span class="jp">ホームグラウンド</span>
+		</h3>
+		<div class="iHomeGround--wrap --wrap">
+			<div class="iHomeGround--info">
+				<div class="iHomeGround--cooperate">
+					<div class="iHomeGround--main">
+						<img src="<?php echo get_theme_file_uri('') ?>/images/logo-909.png" alt="">
+					</div>
+				</div>
+				<h4>909 Truong Chinh Badminton Court</h4>
+				<div class="iHomeGround--desc">
+					<p>We would like to express our sincere thanks for sponsoring the training and competition
+						venue for our team during the MBA Tournament - Ultimate Clans League Season 2.
+						We truly value this partnership and look forward to continued collaboration in the
+						future. Your professional and generous support has provided us with a high-quality
+						environment,
+						allowing our players to perform at their best.</p>
+
+				</div>
+			</div>
+			<div class="iHomeGround--map">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4714.900413693296!2d106.62525047580189!3d10.820626989330924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b0c12f7213%3A0xbbbb5cf9e1c4ccd4!2zQ0xCIEPhuqd1IEzDtG5nIFRyxrDhu51uZyBDaGluaCA5MDk!5e1!3m2!1svi!2s!4v1753639809201!5m2!1svi!2s"
+					style="border:0;" allowfullscreen="" loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</div>
-	</section>
+	</div>
 </main>
 
 <?php
