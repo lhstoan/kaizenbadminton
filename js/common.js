@@ -240,7 +240,7 @@ jQuery(document).ready(function () {
 			slidesToShow: 4,
 			slidesToScroll: 1,
 			autoplay: true,
-			autoplaySpeed: 5000,
+			autoplaySpeed: 2000,
 			prevArrow: jQuery('.iMember--btn .custom-prev'),
 			nextArrow: jQuery('.iMember--btn .custom-next'),
 			responsive: [

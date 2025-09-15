@@ -214,8 +214,12 @@ $args = array(
     'post_type'      => 'matches',
     'orderby'        => 'date',
     'order'          => 'DESC',
-    'posts_per_page' => 6,
+    'posts_per_page' => 4,
     'paged'          => $paged,
+	
+    'meta_key'       => 'round',
+    'orderby'        => 'meta_value_num',
+    'order'          => 'ASC', 
     'meta_query'     => array(
         array(
             'key'     => 'time',       
@@ -234,6 +238,7 @@ if ($the_query->have_posts()):
 		$time = get_field('time');
 
 		$tournament_name = get_field('tournament_name');
+		$court_location = get_field('court_location');
 		$round = get_field('round');
 		$team_information = get_field('team_information');
 		$scores = get_field('scores');
@@ -249,7 +254,7 @@ $kaizen_block = '
 	<img src="'. get_theme_file_uri('') .'/images/logo moi/kaizen team badminton circle.png" alt="KAIZEN">
 </div>
 <div class="iMatch--team-name">
-	<span>KAIZEN</span>
+	<span>KAIZEN BADMINTON</span>
 </div>
 </div>';
 
@@ -269,6 +274,8 @@ if ( $other_team ) {
         </div>';
 }
 
+   $dt = DateTime::createFromFormat('d/m/Y g:i a', $time);
+
 ?>
 				<li class="iMatch--item">
 					<script>
@@ -278,12 +285,9 @@ if ( $other_team ) {
 					<div class="iMatch--item-title">
 						<span class="round">Round <?php echo $round;?></span>
 						<?php
-if ($time) {
-    $dt = DateTime::createFromFormat('d/m/Y g:i a', $time);
-    if ($dt) {
-        echo '<span class="date">' . $dt->format('D d M Y') . '</span>';
-    }
-}
+
+       					 echo '<span class="date">' . $dt->format('D d M Y') . '</span>';
+
 ?>
 						<span class="name"><?php echo $tournament_name;?></span>
 					</div>
@@ -293,7 +297,7 @@ if ($time) {
     if ( $location !== 'home' ) {
         echo $kaizen_block;
      if ( $total !== 5 ) {
-        echo '<ul class="iMatch--team-coming"><span>20:30</span></ul>';
+       echo '<ul class="iMatch--team-coming"><span>' . $dt->format('H:i') . '</span></ul>';
     } else {
     
         echo '<ul class="iMatch--team-scores">
@@ -305,7 +309,7 @@ if ($time) {
     } else {
         echo $other_block;
         if ( $total !== 5 ) {
-        echo '<ul class="iMatch--team-coming"><span>20:30</span></ul>';
+        echo '<ul class="iMatch--team-coming"><span>' . $dt->format('H:i') . '</span></ul>';
     } else {
         
         echo '<ul class="iMatch--team-scores">
@@ -318,7 +322,7 @@ if ($time) {
     ?>
 					</div>
 					<div class="iMatch--item-map">
-						<span>909 Truong Chinh Badminton Court</span>
+						<span><?php echo $court_location; ?></span>
 					</div>
 				</li>
 

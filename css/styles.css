@@ -1313,7 +1313,7 @@ main {
 }
 .iMatch--item {
   position: relative;
-  width: 330px;
+  width: 420px;
   padding: 20px 16px 16px;
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: 10px;
@@ -1325,7 +1325,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: -5px;
+  margin-bottom: 10px;
 }
 .iMatch--item-title .round {
   position: relative;
@@ -1362,7 +1362,7 @@ main {
 }
 .iMatch--team-info {
   position: relative;
-  width: 120px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
