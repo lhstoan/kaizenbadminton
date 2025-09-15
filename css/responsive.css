@@ -123,7 +123,7 @@
     margin-top: 60px;
   }
   .iMainvisual {
-    height: calc(100vh - 60px);
+    height: min(100vh - 60px, 500px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,6 +159,73 @@
     width: 120px;
     height: 120px;
   }
+  .--padding {
+    padding: 40px 10px;
+  }
+  .ih3 {
+    font-size: min(6.25vw, 30px);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
+  .iMember--list {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .iMember--list .slick-slide {
+    margin: 0 10px;
+  }
+  .iMember--list .slick-list {
+    overflow: unset;
+  }
+  .iMember--list li .img {
+    height: 450px;
+  }
+  .iMember--list li .info {
+    font-size: 12px;
+  }
+  .iHomeGround--wrap {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .iHomeGround--info {
+    width: 100%;
+  }
+  .iHomeGround--info h4 {
+    font-size: min(5vw, 22px);
+  }
+  .iHomeGround--map {
+    width: 100%;
+  }
+  .iHomeGround--cooperate {
+    height: 28.125vw;
+  }
+  .iHomeGround--desc p {
+    font-size: 14px;
+  }
+  .iFooter {
+    padding: 20px 10px;
+  }
+  .iFooter--link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  .iFooter--link li {
+    position: relative;
+    text-align: center;
+  }
+  .iFooter--link a {
+    position: relative;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-family: "FatFrank";
+    font-size: 20px;
+  }
+  .iFooter--link a:hover {
+    color: #e8da5d;
+  }
 }
 /* END min-width:1px && screen-max:750px */
 @media screen and (min-width: 375px) and (max-width: 750px) {
@@ -179,57 +246,6 @@
   }
 }
 /* END min-width:475px && screen-max:750px */
-@media screen and (min-width: 525px) and (max-width: 750px) {
-  .iList.fullWidth {
-    padding: 0 0;
-  }
-  .iList.fullWidth .iList--wrap {
-    max-width: 100%;
-  }
-  .iList.fullWidth .iList--main {
-    gap: 0;
-  }
-  .iList.fullWidth .iList--main li {
-    width: 100%;
-  }
-  .iList.fullWidth.gap {
-    padding: 10px;
-    width: 100%;
-  }
-  .iList.fullWidth.gap .iList--main {
-    gap: var(--gap);
-    width: calc(100% + 10px);
-    --gap: 10px;
-  }
-  .iList.fullWidth.gap .iList--main li {
-    width: calc(50% - var(--gap));
-  }
-  .iList.artists .iList--wrap {
-    max-width: 100%;
-  }
-  .iList.artists .iList--main {
-    gap: 10px;
-    width: 100%;
-  }
-  .iList.artists .iList--main li {
-    width: calc(50% - 10px);
-  }
-  .iList.artists .iList--name h4 {
-    font-size: 20px;
-  }
-  .iList.releases .iList--wrap {
-    max-width: 100%;
-  }
-  .iList.releases .iList--main {
-    width: 100%;
-  }
-  .iList.releases .iList--main li {
-    width: 50%;
-  }
-  .iList.releases .iList--name h4 {
-    font-size: 20px;
-  }
-}
 /* END min-width:525px && screen-max:750px */
 /*==========================================================================*/
 /*                 F O R   S P E C I F I E D   B R O W S E R                */

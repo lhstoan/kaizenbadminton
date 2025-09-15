@@ -84,7 +84,7 @@
 	}
 
 	.iMainvisual {
-		height: calc(100vh - 60px);
+		height: min(calc(100vh - 60px), 500px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -121,6 +121,88 @@
 			}
 		}
 	}
+	.--padding {
+		padding: 40px 10px;
+	}
+	.ih3 {
+		font-size: min(calc(20px / 320px * 100vw), 30px);
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+	}
+
+	.iMember {
+		&--list {
+			width: 300px;
+			margin: 0 auto;
+			.slick-slide {
+				margin: 0 10px;
+			}
+
+			.slick-list {
+				overflow: unset;
+			}
+			li {
+				.img {
+					height: 450px;
+				}
+				.info {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	.iHomeGround {
+		&--wrap {
+			gap: 20px;
+			flex-direction: column;
+		}
+		&--info {
+			width: 100%;
+
+			h4 {
+				font-size: min(calc(16px / 320px * 100vw), 22px);
+			}
+		}
+
+		&--map {
+			width: 100%;
+		}
+		&--cooperate {
+			height: calc(90px / 320px * 100vw);
+		}
+		&--desc {
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.iFooter {
+		padding: 20px 10px;
+		&--link {
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
+
+			li {
+				position: relative;
+				text-align: center;
+			}
+			a {
+				position: relative;
+				text-transform: uppercase;
+				color: #fff;
+				text-decoration: none;
+				font-family: "FatFrank";
+				font-size: 20px;
+				&:hover {
+					color: #e8da5d;
+				}
+			}
+		}
+	}
 
 	//END STICKY FOOTER
 }
@@ -152,75 +234,6 @@
 /* END min-width:475px && screen-max:750px */
 
 @media screen and (min-width: 525px) and (max-width: 750px) {
-	.iList {
-		&.fullWidth {
-			padding: 0 0;
-
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					gap: 0;
-					li {
-						width: calc(100%);
-					}
-				}
-			}
-			&.gap {
-				padding: 10px;
-				width: 100%;
-				.iList {
-					&--main {
-						gap: var(--gap);
-						width: calc(100% + 10px);
-						--gap: 10px;
-
-						li {
-							width: calc(100% / 2 - var(--gap));
-						}
-					}
-				}
-			}
-		}
-		&.artists {
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					gap: 10px;
-					width: 100%;
-					li {
-						width: calc(100% / 2 - 10px);
-					}
-				}
-				&--name {
-					h4 {
-						font-size: 20px;
-					}
-				}
-			}
-		}
-		&.releases {
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					width: 100%;
-					li {
-						width: calc(100% / 2);
-					}
-				}
-				&--name {
-					h4 {
-						font-size: 20px;
-					}
-				}
-			}
-		}
-	}
 }
 
 /* END min-width:525px && screen-max:750px */

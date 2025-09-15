@@ -12,13 +12,11 @@ $year = date("Y");
 <footer>
 	<div class="iFooter">
 		<ul class="iFooter--link">
-			<li><a href="">FACEBOOK</a></li>
-			<li><a href="">TIKTOK</a></li>
-			<li><a href="">YOUTUBE</a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=61572834952468" target="_blank">FACEBOOK</a></li>
+			<li><a href="https://www.tiktok.com/@kaizen.badminton" target="_blank">TIKTOK</a></li>
+			<li><a href="https://www.youtube.com/@KaizenBadmintonHouse" target="_blank">YOUTUBE</a></li>
 		</ul>
 		<div class="iFooter--logo">
-
-
 			<div class="iFooter--copyright">
 				<span>@2025 KAIZEN.</span>
 			</div>
@@ -28,6 +26,14 @@ $year = date("Y");
 </footer>
 </div> <!-- CLOSE tag #wrapper -->
 <?php wp_footer(); ?>
+<script>
+document.onkeydown = e => {
+	if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+		e.preventDefault();
+	}
+};
+document.addEventListener('contextmenu', e => e.preventDefault());
+</script>
 </body>
 
 </html>
