@@ -84,263 +84,44 @@
 	}
 
 	.iMainvisual {
-		height: auto;
-		min-height: calc(100vh - 60px);
-		&--main {
-			transform: translate(-50%, -50%);
-			width: 100%;
-			left: 50%;
-			top: 50%;
-			flex-direction: column;
-			gap: 20px;
-			padding: 50px 10px;
-		}
-		&--img {
-			width: calc(200px / 320px * 100vw);
-		}
-		&--content {
-			font-size: calc(12px / 320px * 100vw);
-			width: 100%;
-			left: 0;
-			h6 {
-				margin-bottom: 30px;
-			}
-			a {
-				padding: 10px 16px;
-				font-size: 15px;
-			}
-		}
-	}
-
-	.iList {
-		padding: 40px 10px;
-		&--title {
-			text-align: center;
-			margin-bottom: 16px;
-		}
-		&--main {
-			width: calc(100% + 10px);
-			flex-wrap: wrap;
-
-			&.async {
-				flex-wrap: wrap;
-				--gap: 10px;
-			}
-			li {
-				width: calc(100% / 2 - var(--gap));
-			}
-		}
-		&--name {
-			h4 {
-				font-size: 14px;
-			}
-		}
-		&.fullWidth {
-			padding: 0 0;
-
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					gap: 0;
-					li {
-						width: calc(100%);
-					}
-				}
-			}
-			&.gap {
-				padding: 10px;
-				width: 100%;
-				.iList {
-					&--main {
-						padding-left: 0;
-						gap: var(--gap);
-						width: 100%;
-						--gap: 10px;
-						li {
-							width: calc(100%);
-						}
-					}
-				}
-			}
-		}
-		&.artists {
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					gap: 10px;
-					width: 100%;
-					li {
-						width: calc(100%);
-					}
-				}
-				&--name {
-					h4 {
-						font-size: 20px;
-					}
-				}
-			}
-		}
-		&.releases {
-			.iList {
-				&--wrap {
-					max-width: 100%;
-				}
-				&--main {
-					width: 100%;
-					li {
-						width: calc(100% / 2);
-					}
-				}
-				&--name {
-					h4 {
-						font-size: 20px;
-					}
-				}
-			}
-		}
-	}
-	.iBack--wrap {
-		padding: 20px 10px;
-	}
-	.iBack {
-		a {
-			font-size: 14px;
-			&::before {
-				top: 0px;
-			}
-		}
-	}
-	.iDetail {
-		&--img {
-			padding: 20px 10px;
-		}
-		&--link {
-			padding: 20px 10px;
-			a {
-				font-size: 15px;
-			}
-		}
-		&--desc {
-			padding: 20px 10px;
-		}
-	}
-	.marquee {
-		span {
-			font-size: 20px;
-		}
-	}
-	.iFooter {
-		padding: 40px 10px;
+		height: calc(100vh - 60px);
 		display: flex;
-		align-items: flex-start;
-		flex-direction: row-reverse;
-		.img {
-			height: 40px;
-			position: relative;
-			margin-bottom: 10px;
-			text-align: right;
-			img {
-				height: 100%;
-			}
-		}
-		&--copyright {
-			text-align: right;
-		}
-		&--link {
-			flex-direction: column;
-			gap: 0px;
-			margin-bottom: 0px;
-			margin-top: 0px;
-			order: 2;
-			margin-right: auto;
-			li {
-				text-align: left;
-			}
-		}
-	}
-
-	.iContact {
-		padding: 30px 10px;
-		&--wrap {
-			flex-direction: column;
-		}
-		&--info {
-			width: 100%;
-			padding: 10px;
-			&-title {
-				margin-bottom: 20px;
-				.title {
-					font-size: 30px;
-				}
-				.desc {
-					font-size: 14px;
-				}
-			}
-		}
-		&--group {
-			gap: 10px;
-		}
-		&--item {
-			width: 100%;
-			gap: 10px;
-			font-size: 14px;
-			--s: 46px;
-
-			&-icon {
-				img {
-					width: 24px;
-				}
-			}
-			&-content {
-				font-size: 14px;
-			}
-		}
-		&--form {
-			width: 100%;
-			padding: 10px;
-
-			--fz: 14px;
-
-			&-group {
-				flex-direction: column;
-				.iContact--form-item {
-					width: 100%;
-				}
-			}
-
-			&-item {
-				label {
-					font-size: 14px;
-				}
-			}
-		}
-	}
-	.iPlaylist {
+		align-items: center;
+		justify-content: center;
 		&--main {
+			width: 100%;
+			position: relative;
+			max-width: 100%;
+			padding: 40px 10px;
+			flex-direction: column;
+			transform: none;
+			top: unset;
+			left: unset;
+			gap: 20px;
+		}
+		&--img {
+			position: relative;
+			width: 200px;
+		}
+
+		&--content {
+			width: 100%;
+		}
+		&--list {
+			position: relative;
+			display: flex;
+			gap: 10px;
 			flex-wrap: wrap;
+			justify-content: center;
+			max-width: 450px;
+			margin: 0 auto;
 			li {
-				width: calc(100%);
+				width: 120px;
+				height: 120px;
 			}
 		}
 	}
-.uPlaylist {
 
-	padding: 40px 15px;
-
-	&--main {
-		--gap: 15px;
-		width:100%;
-		li {
-				width: calc(100%);
-
-			
-		}
-	}
-}
 	//END STICKY FOOTER
 }
 

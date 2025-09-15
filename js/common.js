@@ -242,7 +242,16 @@ jQuery(document).ready(function () {
 			autoplay: true,
 			autoplaySpeed: 5000,
 			prevArrow: jQuery('.iMember--btn .custom-prev'),
-			nextArrow: jQuery('.iMember--btn .custom-next')
+			nextArrow: jQuery('.iMember--btn .custom-next'),
+			responsive: [
+				{
+					breakpoint: 750,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+			]
 		});
 	});
 
