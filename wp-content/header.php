@@ -40,11 +40,14 @@
 			<header>
 				<div class="iHeader">
 					<div class="iHeader--logo">
-						<img src="<?php echo get_theme_file_uri('') ?>/images/logo.png" alt="">
+						<a href="<?php echo home_url(); ?>/">
+							<img src="<?php echo get_theme_file_uri('') ?>/images/logo.png" alt="Kaizen Badminton">
+						</a>
+
 					</div>
 					<div class="iHeader--menu">
 						<ul class="iHeader--list">
-							<li><a href="">Abouts</a></li>
+							<li><a href="<?php echo home_url(); ?>/matches/">MATCHES</a></li>
 						</ul>
 					</div>
 					<div class="iHeader--hamburger">

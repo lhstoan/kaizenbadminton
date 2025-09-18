@@ -21,54 +21,11 @@ get_header();
 
 <main>
 	<section class="iMainvisual">
-		<div class="iMainvisual--main">
-			<div class="iMainvisual--img">
-				<img src="<?php echo get_theme_file_uri('') ?>/images/logo.png" alt="You ARE MY SUNSHINE">
-			</div>
-			<div class="iMainvisual--content">
-				<ul class="iMainvisual--list">
-					<?php
-global $post;
-$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-$args = array(
-	'post_type' => 'member',
-	'orderby' => 'date',
-	'order' => 'desc',
-	'posts_per_page' => 6,
-	'paged' => $paged,
-);
-
-$the_query = new WP_Query($args);
-
-if ($the_query->have_posts()):
-	while ($the_query->have_posts()): $the_query->the_post();
-		$acf_link = get_field('url');
-		$full_name = get_field('full_name');
-		$nationality = get_field('nationality');
-		$event = get_field('event');
-		$thumbnail_id = get_post_thumbnail_id();
-		$yt_thumb = get_youtube_thumbnail_best($acf_link);
-		$thumbnail_url = '';
-
-		if ($thumbnail_id) {
-			$thumbnail_url = wp_get_attachment_url($thumbnail_id);
-		} elseif ($acf_image = get_field('profile_photo')) {
-			$thumbnail_url = $acf_image;
-		} elseif ($yt_thumb) {
-			$thumbnail_url = $yt_thumb;
-		} else {
-			$thumbnail_url = get_theme_file_uri('images/default.jpg');
-		}
-		?> <li><img src="<?php echo $thumbnail_url; ?>" alt=""></li>
-
-					<?php
-	endwhile;
-	wp_reset_postdata();
-endif;
-?>
-				</ul>
-			</div>
+		<div class="iMainvisual--bg">
+			<img src="<?php echo get_theme_file_uri('') ?>/images/banner-security.jpg" alt="Kaizen Badminton"
+				class="sp">
+			<img src="<?php echo get_theme_file_uri('') ?>/images/banner-security-pc.jpg" alt="Kaizen Badminton"
+				class="pc">
 		</div>
 	</section>
 	<section class="iMember --padding">
@@ -141,22 +98,8 @@ endif;
 		</div>
 
 	</section>
-	<!-- <section class="iPartner --padding">
-		<div class="iPartner--wrap --wrap">
-			<h3 class="ih3">
-				<span class="en">Partners</span>
-				<span class="jp">協力企業</span>
-			</h3>
-			<ul class="iPartner--list">
-				<li>
-					<div class="img">
-						<img src="images/logo.png" alt="">
-					</div>
-				</li>
-			</ul>
-		</div>
-	</section> -->
-	<div class="iHomeGround --padding">
+
+	<!-- <div class="iHomeGround --padding">
 		<h3 class="ih3">
 			<span class="en">Home Ground</span>
 			<span class="jp">ホームグラウンド</span>
@@ -186,8 +129,9 @@ endif;
 					referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="iMatch">
+		<div class="iMatch--bg"></div>
 		<div class="iMatch--title">
 			<h3 class="ih3">
 				<span class="en">Matches</span>
@@ -278,10 +222,7 @@ if ( $other_team ) {
 
 ?>
 				<li class="iMatch--item">
-					<script>
-					const event = <?php echo json_encode($total); ?>;
-					console.log(event);
-					</script>
+
 					<div class="iMatch--item-title">
 						<span class="round">Round <?php echo $round;?></span>
 						<?php
@@ -335,6 +276,98 @@ endif;
 			</ul>
 		</div>
 	</div>
+	<section class="iPartner --padding">
+		<div class="iPartner--wrap --wrap">
+			<h3 class="ih3">
+				<span class="en">Partners</span>
+				<span class="jp">協力企業</span>
+			</h3>
+			<?php
+function render_partner_list( $condition ,$title) {
+    $args = array(
+        'post_type'      => 'partner',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+		'posts_per_page' => -1
+    );
+
+    if ( $condition === 'main_partner' ) {
+        $args['meta_key']   = 'main_partner';
+        $args['meta_value'] = '1';
+    } else if ( $condition === 'international_partners' ) {
+        $args['meta_key']   = 'international_partners';
+        $args['meta_value'] = '1';
+    } else{
+        $args['meta_query'] = array(
+        'relation' => 'AND',
+        array(
+            'relation' => 'OR',
+            array(
+                'key'     => 'main_partner',
+                'value'   => '0',
+                'compare' => '='
+            ),
+            array(
+                'key'     => 'main_partner',
+                'compare' => 'NOT EXISTS'
+            )
+        ),
+        array(
+            'relation' => 'OR',
+            array(
+                'key'     => 'international_partners',
+                'value'   => '0',
+                'compare' => '='
+            ),
+            array(
+                'key'     => 'international_partners',
+                'compare' => 'NOT EXISTS'
+            )
+        )
+    );
+    }
+
+    $partners = new WP_Query( $args );
+
+    if ( $partners->have_posts() ) {
+		 echo '<p class="iPartner--title">' . esc_html( $title ) . '</p>';
+         $class = 'iPartner--list' . ( $condition === 'main_partner' ||  $condition === 'international_partners'  ? ' --main' : '' );
+        echo '<ul class="' . esc_attr( $class ) . '">';
+        while ( $partners->have_posts() ) {
+            $partners->the_post();
+            $logo = get_field('logo');
+            if ( $logo ) {
+                echo '<li><div class="img">';
+                echo '<img src="' . esc_url($logo) . '" alt="' . esc_attr(get_the_title()) . '">';
+                echo '</div></li>';
+            }
+        }
+        echo '</ul>';
+        wp_reset_postdata();
+    }
+}
+?>
+			<div class="iPartner--group">
+				<div class="iPartner--group-item">
+					<?php
+render_partner_list( 'main_partner' ,'Official Court Sponsors');
+?>
+				</div>
+				<div class="iPartner--group-item">
+					<?php
+
+render_partner_list( 'international_partners','International Partners' );
+
+?>
+				</div>
+			</div>
+			<?php
+
+render_partner_list( 'false','Official Partners' );
+?>
+
+		</div>
+	</section>
 </main>
 
 <?php
