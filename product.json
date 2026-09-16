@@ -1,0 +1,149 @@
+[
+	{
+		"key": "group_kaizen_product",
+		"title": "Kaizen Product Information",
+		"fields": [
+			{
+				"key": "field_product_category",
+				"label": "Product Category",
+				"name": "product_category",
+				"type": "select",
+				"choices": {
+					"shirt": "Shirt",
+					"shorts": "Shorts",
+					"cap": "Cap",
+					"socks": "Socks",
+					"accessory": "Accessory"
+				},
+				"allow_null": 0,
+				"multiple": 0,
+				"ui": 1,
+				"return_format": "value"
+			},
+			{
+				"key": "field_sizes",
+				"label": "Sizes",
+				"name": "sizes",
+				"type": "checkbox",
+				"choices": {
+					"XS": "XS",
+					"S": "S",
+					"M": "M",
+					"L": "L",
+					"XL": "XL",
+					"2XL": "2XL",
+					"3XL": "3XL"
+				},
+				"layout": "horizontal",
+				"return_format": "value"
+			},
+			{
+				"key": "field_price",
+				"label": "Price",
+				"name": "price",
+				"type": "number",
+				"append": "VNĐ",
+				"min": 0
+			},
+			{
+				"key": "field_is_new",
+				"label": "New Product",
+				"name": "is_new",
+				"type": "true_false",
+				"ui": 1,
+				"default_value": 0
+			},
+			{
+				"key": "field_sort_order",
+				"label": "Sort Order",
+				"name": "sort_order",
+				"type": "number",
+				"default_value": 0,
+				"min": 0,
+				"step": 1
+			},
+			{
+				"key": "field_short_description",
+				"label": "Short Description",
+				"name": "short_description",
+				"type": "textarea",
+				"rows": 3,
+				"new_lines": "br"
+			},
+			{
+				"key": "field_size_guide_image",
+				"label": "Size Guide Image",
+				"name": "size_guide_image",
+				"type": "image",
+				"return_format": "array",
+				"preview_size": "medium",
+				"library": "all"
+			},
+			{
+				"key": "field_purchase_link",
+				"label": "Purchase Link",
+				"name": "purchase_link",
+				"type": "url"
+			},
+			{
+				"key": "field_gallery",
+				"label": "Gallery",
+				"name": "gallery",
+				"type": "gallery",
+				"preview_size": "medium",
+				"insert": "append",
+				"library": "all"
+			},
+			{
+				"key": "field_colors",
+				"label": "Colors",
+				"name": "colors",
+				"type": "repeater",
+				"layout": "row",
+				"button_label": "Add Color",
+				"sub_fields": [
+					{
+						"key": "field_color_name",
+						"label": "Color Name",
+						"name": "color_name",
+						"type": "text",
+						"required": 1
+					},
+					{
+						"key": "field_color_code",
+						"label": "Color Code",
+						"name": "color_code",
+						"type": "color_picker",
+						"required": 1
+					},
+					{
+						"key": "field_color_image",
+						"label": "Color Image",
+						"name": "color_image",
+						"type": "image",
+						"required": 0,
+						"return_format": "array",
+						"preview_size": "medium",
+						"library": "all"
+					}
+				]
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "post_type",
+					"operator": "==",
+					"value": "product"
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "top",
+		"instruction_placement": "label",
+		"active": true,
+		"description": "Kaizen badminton product fields"
+	}
+]

@@ -19,8 +19,8 @@
 
 		<!-- FAVICON -->
 		<link rel="icon" href="<?php echo get_theme_file_uri('') ?>/favicon.ico" type="image/x-icon">
-		<!-- <meta property="og:image" content="<?php echo get_theme_file_uri('') ?>/images/ogp.jpg"> -->
-		<!-- <meta name="thumbnail" content="<?php echo get_theme_file_uri('') ?>/images/thumbnail.jpg"> -->
+		<meta property="og:image" content="<?php echo get_theme_file_uri('') ?>/images/ogp.jpg">
+		<meta name="thumbnail" content="<?php echo get_theme_file_uri('') ?>/images/thumbnail.jpg">
 		<style>
 		@font-face {
 			font-family: "FatFrank";

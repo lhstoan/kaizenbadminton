@@ -131,10 +131,12 @@ jQuery(window).bind('load scroll', function () {
 	// =========== END - TO-TOP ============
 
 	var pTop = jQuery(this).scrollTop();
-	if (pTop > 0) {
+	if (pTop > 100) {
 		jQuery("body").addClass('fixed');
+		jQuery(".iHeader").addClass('scroll');
 	} else {
 		jQuery("body").removeClass('fixed');
+		jQuery(".iHeader").removeClass('scroll');
 	}
 });
 
